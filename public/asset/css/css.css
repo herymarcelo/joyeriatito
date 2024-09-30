@@ -1,0 +1,134 @@
+.nav {
+    border-radius: 12px;
+    background: #ffffff1a;
+    border: 1px solid #ffffff20;
+    backdrop-filter: blur(16px) saturate(120%);
+}
+.navbar-title {
+    font-family: 'Beau Rivage', cursive; /* o serif, según tus preferencias */
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0px 0px 10px cyan,
+                 0px 0px 20px cyan,
+                 0px 0px 30px cyan,
+                 0px 0px 40px cyan;
+}
+.image-container {
+    position: relative;
+    width: 500px; /* Ancho fijo de 1000px para la sección */
+    height: 500px; /* Altura fija de 500px para las imágenes */
+    overflow: hidden; /* Oculta las imágenes fuera de este contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}
+.image-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Altura completa del contenedor */
+    object-fit: contain; /* Asegura que la imagen cubra el contenedor sin distorsionar */
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transición suave */    
+    /* Bordes redondeados y sombra */
+    border-radius: 24px; /* Borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0); /* Sombra suave */
+    /*clip-path: circle(50% at 50% 50%);  imagen redonda */
+}
+.image-slide.active {
+    opacity: 1;
+    transform: translateX(0); /* Imagen visible */
+}
+.image-slide.next {
+    opacity: 0;
+    transform: translateX(-100%); /* Se desplaza hacia la izquierda */
+}
+.carousel {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141741;
+}
+.carousel-list {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.carousel-item {
+    position: absolute;
+    width: min(400px, 30vw);
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+    transition: transform 500ms, opacity 500ms;
+    cursor: pointer;
+}
+.carousel-item[data-pos="-2"] {
+    transform: translateX(-200px) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+}
+.carousel-item[data-pos="-1"] {
+    transform: translateX(-100px) scale(0.85);
+    opacity: 0.7;
+    z-index: 2;
+}
+.carousel-item[data-pos="0"] {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+.carousel-item[data-pos="1"] {
+    transform: translateX(100px) scale(0.85);
+    opacity: 0.7;
+    z-index: 2;
+}
+.carousel-item[data-pos="2"] {
+    transform: translateX(200px) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+}
+.image-accordion {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 400px; /* Ajusta según el tamaño que desees */
+    overflow: hidden;
+}
+
+.card {
+    position: relative;
+    width: 100px; /* Tamaño inicial para el card */
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.card:hover {
+    width: 300px; /* Tamaño expandido al hacer hover */
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.backdrop {
+    /* Añade cualquier estilo adicional para el fondo de las tarjetas */
+}
